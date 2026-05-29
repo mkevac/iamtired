@@ -1,0 +1,10 @@
+# Netlify deploy config for FocusTrack (static PWA, no backend).
+[build]
+  command = "npm run build"
+  publish = "dist/public"
+
+# SPA fallback so any path serves the app shell.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
