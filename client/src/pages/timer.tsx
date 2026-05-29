@@ -201,7 +201,7 @@ export default function TimerPage() {
 
       {!isRunning && (
         <p className="mt-5 max-w-xs text-center text-[13px] text-muted-foreground">
-          Tap start when you begin a work block. FocusTrack will nudge you to rest on your{" "}
+          Tap start when you begin a work block. iamtired will nudge you to rest on your{" "}
           {settings?.workMinutes ?? 25}/{settings?.breakMinutes ?? 5} Pomodoro rhythm.
         </p>
       )}

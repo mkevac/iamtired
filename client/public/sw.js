@@ -1,6 +1,6 @@
-// FocusTrack service worker — offline app shell.
+// iamtired service worker — offline app shell.
 // All user data lives in IndexedDB, so the SW only needs to cache static assets.
-const CACHE = "focustrack-v1";
+const CACHE = "iamtired-v1";
 const APP_SHELL = [
   "./",
   "./index.html",

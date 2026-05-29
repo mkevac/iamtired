@@ -107,7 +107,7 @@ export default function SettingsSheet({
       const a = document.createElement("a");
       const stamp = new Date().toISOString().slice(0, 10);
       a.href = url;
-      a.download = `focustrack-backup-${stamp}.json`;
+      a.download = `iamtired-backup-${stamp}.json`;
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -142,7 +142,7 @@ export default function SettingsSheet({
         <div className="mx-auto w-full max-w-2xl">
           <SheetHeader className="text-left">
             <SheetTitle>Pomodoro settings</SheetTitle>
-            <SheetDescription>Tune your focus rhythm and how FocusTrack nudges you.</SheetDescription>
+            <SheetDescription>Tune your focus rhythm and how iamtired nudges you.</SheetDescription>
           </SheetHeader>
 
           {!settings ? (

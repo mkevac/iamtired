@@ -4,7 +4,7 @@ import type { Session, Settings, InsertSession, UpdateSettings } from "@shared/s
 // IndexedDB-backed store. Replaces the old SQLite/Express backend so the app
 // runs as a pure static site with per-device, offline-capable persistence.
 
-interface FocusTrackDB extends DBSchema {
+interface IamTiredDB extends DBSchema {
   sessions: {
     key: number;
     value: Session;
@@ -16,7 +16,7 @@ interface FocusTrackDB extends DBSchema {
   };
 }
 
-const DB_NAME = "focustrack";
+const DB_NAME = "iamtired";
 const DB_VERSION = 1;
 
 export const DEFAULT_SETTINGS: Omit<Settings, "id"> = {
@@ -30,11 +30,11 @@ export const DEFAULT_SETTINGS: Omit<Settings, "id"> = {
   notificationsEnabled: true,
 };
 
-let dbPromise: Promise<IDBPDatabase<FocusTrackDB>> | null = null;
+let dbPromise: Promise<IDBPDatabase<IamTiredDB>> | null = null;
 
 function getDB() {
   if (!dbPromise) {
-    dbPromise = openDB<FocusTrackDB>(DB_NAME, DB_VERSION, {
+    dbPromise = openDB<IamTiredDB>(DB_NAME, DB_VERSION, {
       upgrade(db) {
         if (!db.objectStoreNames.contains("sessions")) {
           const store = db.createObjectStore("sessions", {
@@ -146,7 +146,7 @@ export async function updateSettings(data: UpdateSettings): Promise<Settings> {
 // --- Backup / restore (JSON export & import) ---
 
 export interface BackupBundle {
-  app: "focustrack";
+  app: "iamtired";
   version: number;
   exportedAt: number;
   sessions: Session[];
@@ -157,7 +157,7 @@ export async function exportData(): Promise<BackupBundle> {
   const [sessions, settings] = await Promise.all([getSessions(), getSettings()]);
   const { id: _omit, ...settingsNoId } = settings;
   return {
-    app: "focustrack",
+    app: "iamtired",
     version: DB_VERSION,
     exportedAt: Date.now(),
     sessions,
@@ -171,8 +171,8 @@ export interface ImportResult {
 
 // Replaces all local data with the contents of the bundle.
 export async function importData(bundle: BackupBundle): Promise<ImportResult> {
-  if (!bundle || bundle.app !== "focustrack" || !Array.isArray(bundle.sessions)) {
-    throw new Error("This file is not a FocusTrack backup.");
+  if (!bundle || bundle.app !== "iamtired" || !Array.isArray(bundle.sessions)) {
+    throw new Error("This file is not an iamtired backup.");
   }
   const db = await getDB();
   const tx = db.transaction(["sessions", "settings"], "readwrite");

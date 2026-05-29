@@ -15,7 +15,7 @@ export async function ensureNotificationPermission(): Promise<boolean> {
 export function showNotification(title: string, body: string) {
   try {
     if (typeof Notification !== "undefined" && Notification.permission === "granted") {
-      new Notification(title, { body, icon: "/icon-192.png", badge: "/icon-192.png", tag: "focustrack" });
+      new Notification(title, { body, icon: "/icon-192.png", badge: "/icon-192.png", tag: "iamtired" });
     }
   } catch {
     /* notifications unavailable (e.g. sandboxed iframe) — silently ignore */

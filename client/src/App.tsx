@@ -20,7 +20,7 @@ function Logo() {
         <path d="M12 13l3.5 1.8" stroke="hsl(var(--break))" strokeWidth="2" strokeLinecap="round" />
         <rect x="9" y="2.5" width="6" height="2.6" rx="1.3" fill="hsl(var(--primary))" />
       </svg>
-      <span className="font-bold tracking-tight text-[15px]">FocusTrack</span>
+      <span className="font-bold tracking-tight text-[15px]">iamtired</span>
     </div>
   );
 }

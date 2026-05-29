@@ -1,6 +1,6 @@
-# Deploying FocusTrack
+# Deploying iamtired
 
-FocusTrack is now a **pure static site** — no server, no database. All your data
+iamtired is now a **pure static site** — no server, no database. All your data
 lives in your browser (IndexedDB) on the device you use it on. That means you can
 host it for free on any static host.
 
@@ -55,7 +55,7 @@ because assets are referenced relatively.
 
 Because data is per-device, use **Settings → Backup & restore** in the app:
 
-- **Export** downloads a `focustrack-backup-YYYY-MM-DD.json` file.
+- **Export** downloads a `iamtired-backup-YYYY-MM-DD.json` file.
 - **Import** loads that file on another device/browser (this replaces existing data
   on that device).
 
@@ -65,7 +65,7 @@ The codebase is Capacitor-ready. To wrap it as a real iOS/Android app:
 
 ```bash
 npm i -D @capacitor/cli @capacitor/core
-npx cap init FocusTrack app.focustrack --web-dir=dist/public
+npx cap init iamtired app.iamtired --web-dir=dist/public
 npm i @capacitor/ios @capacitor/android
 npx cap add ios && npx cap add android
 npm run build && npx cap sync

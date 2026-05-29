@@ -1,6 +1,6 @@
 {
-  "name": "FocusTrack — Work Timer & Pomodoro",
-  "short_name": "FocusTrack",
+  "name": "iamtired — Work Timer & Pomodoro",
+  "short_name": "iamtired",
   "description": "Track working time with a configurable Pomodoro timer, history, and stats.",
   "start_url": "./",
   "scope": "./",
